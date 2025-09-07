@@ -1,0 +1,142 @@
+#logging-in-form, #tasks_div {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: rgb(221, 216, 210);
+    margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
+
+    button {
+        width: 30%;
+        align-self: end;
+    }
+}
+
+#login_form {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+#orange_div, #gray_div {
+    background-color: rgb(252, 143, 0);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 4rem;
+    border-radius: 2rem 2rem 0px 0px;
+    justify-content: center;
+    align-items: center;
+    #whoami_div{
+        text-align: center;
+    }
+}
+
+#whoami_div {
+    text-align: center;
+
+    img {
+        border-radius: 50%;
+        margin: 5px;
+        width: 100%;
+        max-width: 150px;
+        object-fit: cover;
+    }
+}
+
+#gray_div {
+    background-color: rgb(236, 233, 233);
+    border-radius: 0rem;
+    margin: 0px 4rem;
+    padding: 0px 2rem;
+    display: grid;
+    align-items: start;
+    
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    > div {
+        text-align: center;
+    }
+}
+
+.small_div{
+    margin-bottom: 20px;
+}
+
+.outer-div {
+    display: grid;
+    place-items: center;
+    .inner-div {
+        text-align: start;
+        display: grid;
+        gap: 10px;
+    }
+}
+
+.canvas {
+    background-color: rgb(173, 171, 171);
+}
+
+.circleCanvas {
+    width: 100%; 
+    max-width: 75px; 
+    aspect-ratio: 1/1; 
+    border-radius: 50%;
+    background-color: rgb(173, 171, 171);
+}
+
+#online_info {
+    p {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    }
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+#colored_footer_div {
+    margin: 0px 4rem;
+    height: 30px; 
+    background-color: gray;
+}
+
+#colored_footer_div canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#second_col {
+    width: 95%;
+
+    div {
+        margin: 0px;
+        padding-left: 10px;
+        text-align: start;
+    }
+
+    h4, p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.orange_div {
+    background-color: rgb(252, 143, 0);
+    width: 100%;
+    color: white;
+}
+
+
+@media (max-width: 600px) {
+    #orange_div, #gray_div {
+        grid-template-columns: 1fr;
+        margin: 0 1rem;
+        text-align: center;
+    }
+}

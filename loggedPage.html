@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <style>
+        #welcome_msg, #logout_button {
+            background-color: gray;
+            width: 50%;
+            margin: auto;
+            pad: 20px;
+            text-align: center;
+            border-radius: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="welcome_msg">
+        <h1>Welcome Home!</h1>
+    </div>
+
+    <div id="logout_button">
+        <button type="button">Logout</button>
+    </div>
+
+    <script>
+        const userData = localStorage.getItem('user');
+        const data = JSON.parse(userData);
+        const welcomeMessage = document.getElementById('welcome_msg');
+        const message = document.createElement('h2');
+        if (userData && data.email) {
+            message.innerHTML = `${data.email}<br>I remember You`;
+            welcomeMessage.append(message);
+        } else {
+            message.innerHTML = 'I don\'t remember You';
+        }
+        welcomeMessage.append(message);
+        const logoutBtn = document.getElementsByTagName('button');
+        logoutBtn[0].addEventListener('click', () => {
+            window.location.href = './rememberme.html'
+        })
+    </script>
+</body>
+
+</html>

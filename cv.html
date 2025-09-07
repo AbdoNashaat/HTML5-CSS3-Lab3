@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Task</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="orange_div">
+        <div id="whoami_div">
+            <img src="./assets/profilepic.webp" alt="">
+        </div>
+        <div>
+            <h1>Abdelghafaar Nashaat</h1>
+            <h3>Full-Stack Web Developer</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam laudantium odit enim officiis nemo?
+                Laborum tempore ipsam molestias nam eum saepe, blanditiis est a, beatae hic aspernatur et ea ab.</p>
+        </div>
+    </div>
+    <div id="gray_div">
+        <div>
+            <h2>Contact</h2>
+            <div class="small_div">
+                <h4>🏠 123 Park Where, Ciaro, MK</h4>
+                <h4>📱 +20 154 125 4526</h4>
+                <h4>✉️ abdo@gmail.com</h4>
+                <h4>🌐 www.idon'tknowwhy.com</h4>
+            </div>
+            <h2>Languages</h2>
+            <div class="outer-div small_div">
+                <div class="inner-div">
+                    <p style="margin: 0;">English</p>
+                    <canvas class="canvas" height="20vh" width="300px"></canvas>
+
+                    <p style="margin: 0;">Arabic</p>
+                    <canvas class="canvas" height="20vh" width="300px"></canvas>
+
+                    <p style="margin: 0;">Spanish</p>
+                    <canvas class="canvas" height="20vh" width="300px"></canvas>
+                </div>
+            </div>
+            <h2>Skills</h2>
+            <div class="small_div">
+                <canvas class="circleCanvas"></canvas>
+                <canvas class="circleCanvas"></canvas>
+                <canvas class="circleCanvas"></canvas>
+                <canvas class="circleCanvas"></canvas>
+            </div>
+            <h2>Online info</h2>
+            <div class="small_div" id="online_info" style="display: grid; grid-template-columns: 1fr 1fr;">
+                <p style=" justify-content: end;"><img src="./assets/facebook.png">/abdonashaat</p>
+                <p style="justify-content: start;"><img src="./assets/gmail.png">/abdonashaat</p>
+            </div>
+        </div>
+        <div id="second_col">
+            <div class="orange_div"><h2>Achievements</h2></div>
+            <div>
+                <h4>2010 Project Mega</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+                <h4>2010 Project Mega</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+                <h4>2010 Project Mega</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+            </div>
+            <div class="orange_div"><h2>Education</h2></div>
+            <div>
+                <h4>2010-2012 High School</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+                <h4>2012-2015 University</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+                <h4>2015-2018 Intern</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+            </div>
+            <div class="orange_div"><h2>Work Experience</h2></div>
+            <div>
+                <h4>2018-2020 Junior Engineer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+                <h4>2020-2024 Senior Dev</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptas distinctio totam dolore asperiores, temporibus aperiam quo </p>
+            </div>
+            
+        </div>
+    </div>
+    <div id="colored_footer_div">
+        <canvas id="footerCanvas"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementsByClassName('canvas');
+        const percentages = [0.8, 0.5, 0.65];
+        const colors = ['red', 'green', 'yellow'];
+        for (let i = 0; i < canvas.length; i++) {
+            let ctx = canvas[i].getContext('2d');
+            ctx.fillStyle = colors[i];
+            ctx.fillRect(0, 0, canvas[i].width * percentages[i], canvas[i].height);
+        }
+
+        const canvases = document.querySelectorAll('.circleCanvas');
+        const angles = [Math.PI * 0.5, Math.PI * 1.5, Math.PI * 1.7, Math.PI * 0.75]
+        const circleColors = ['green', 'yellow', 'red', 'blue'];
+        const circleTexts = ['AI', 'Ps', 'CSS', 'JS']
+
+        canvases.forEach((canvas, index) => {
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetWidth;
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI);
+            ctx.clip();
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2, canvas.height / 2);
+            ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, -Math.PI / 2, angles[index] - Math.PI / 2);
+            ctx.closePath();
+            ctx.fillStyle = circleColors[index];
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, (canvas.width / 2) * 0.6, 0, 2 * Math.PI);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(circleTexts[index], canvas.width / 2, canvas.height / 2);
+        });
+
+        const footerCanvas = document.getElementById('footerCanvas');
+        const ctx = footerCanvas.getContext('2d');
+        const thirdWidth = footerCanvas.width / 3;
+        ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, thirdWidth, footerCanvas.height);
+        ctx.fillStyle = 'orange';
+        ctx.fillRect(thirdWidth, 0, thirdWidth, footerCanvas.height);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(2 * thirdWidth, 0, thirdWidth, footerCanvas.height);
+
+    </script>
+</body>
+
+</html>
